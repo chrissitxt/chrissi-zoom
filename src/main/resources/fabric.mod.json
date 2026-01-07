@@ -1,0 +1,32 @@
+{
+	"schemaVersion": 1,
+	"id": "chrissi-zoom",
+	"version": "${version}",
+	"name": "chrissi's Zoom",
+	"description": "A lightweight client-side mod that allows you to toggle zoom with a keybind.",
+	"authors": [
+		"chrissi"
+	],
+	"contact": {
+		"homepage": "https://chrissitxt.me/",
+		"sources": "https://github.com/chrissitxt/chrissi-nightvision",
+		"issues": "https://github.com/chrissitxt/chrissi-nightvision/issues"
+	},
+	"license": "Unlicense",
+	"icon": "assets/chrissi-zoom/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+          "chrissi.zoom.ZoomClient"
+		]
+	},
+	"mixins": [
+		"chrissi-zoom.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": ">=26.1-",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
