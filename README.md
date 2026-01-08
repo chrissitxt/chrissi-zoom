@@ -14,7 +14,7 @@ Uses Minecraft's built-in spyglass zoom functionality for smooth, vanilla-like z
 
 Hold **C** (default keybind) to zoom in. While zooming, use your **mouse wheel** to adjust the zoom level.
 
-To change the keybind, go to **Options → Controls → chrissi's Zoom** and look for "Zoom".
+To change the keybind, go to **Options → Controls → Miscellaneous** and look for "Hold Zoom".
 
 You can customize the mod's behavior by editing the config file located at:
 
