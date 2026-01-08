@@ -40,27 +40,21 @@ public class ZoomClient implements ClientModInitializer {
             boolean wasZooming = isZooming;
             isZooming = zoomKey.isDown();
 
-            // reset zoom level when starting to zoom
+            // handle zoom activation
             if (isZooming && !wasZooming) {
                 targetZoomLevel = config.defaultZoomLevel;
 
-                if (config.playZoomSound && client.player != null) {
-                    client.player.playSound(
-                            SoundEvents.SPYGLASS_USE,
-                            0.5f,
-                            1.0f
-                    );
+                // optional: play sound feedback
+                if (config.playZoomSound) {
+                    client.player.playSound(SoundEvents.SPYGLASS_USE, 0.5f, 1.0f);
                 }
             }
 
-            // play sound when stopping zoom
+            // handle zoom deactivation
             if (!isZooming && wasZooming) {
-                if (config.playZoomSound && client.player != null) {
-                    client.player.playSound(
-                            SoundEvents.SPYGLASS_STOP_USING,
-                            0.5f,
-                            1.0f
-                    );
+                // optional: play sound feedback
+                if (config.playZoomSound) {
+                    client.player.playSound(SoundEvents.SPYGLASS_STOP_USING, 0.5f, 1.0f);
                 }
             }
         });
