@@ -46,7 +46,7 @@ public class ZoomClient implements ClientModInitializer {
 
                 if (config.playZoomSound && client.player != null) {
                     client.player.playSound(
-                            SoundEvents.SPYGLASS_USE.value(),
+                            SoundEvents.SPYGLASS_USE,
                             0.5f,
                             1.0f
                     );
@@ -57,7 +57,7 @@ public class ZoomClient implements ClientModInitializer {
             if (!isZooming && wasZooming) {
                 if (config.playZoomSound && client.player != null) {
                     client.player.playSound(
-                            SoundEvents.SPYGLASS_STOP_USING.value(),
+                            SoundEvents.SPYGLASS_STOP_USING,
                             0.5f,
                             1.0f
                     );
