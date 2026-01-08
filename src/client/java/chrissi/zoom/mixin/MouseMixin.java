@@ -12,6 +12,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MouseHandler.class)
 public class MouseMixin {
+    private static final int SCROLL_COOLDOWN_TICKS = 2;
+
     @Shadow @Final private Minecraft minecraft;
     private int scrollCooldown = 0;
 
@@ -20,13 +22,11 @@ public class MouseMixin {
         if (this.minecraft.player != null && ZoomClient.isZooming()) {
             if (scrollCooldown <= 0 && vertical != 0) {
                 ZoomClient.adjustZoom(vertical);
-                scrollCooldown = 2;
+                scrollCooldown = SCROLL_COOLDOWN_TICKS;
+            } else if (scrollCooldown > 0) {
+                scrollCooldown--;
             }
             ci.cancel();
-        }
-
-        if (scrollCooldown > 0) {
-            scrollCooldown--;
         }
     }
 }
