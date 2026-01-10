@@ -6,7 +6,7 @@ Uses Minecraft's built-in spyglass zoom functionality for smooth, vanilla-like z
 
 ---
 
-**Please note:** This mod is Java Edition only and exclusively hosted on [Modrinth](https://modrinth.com/mod/chrissi-nightvision). The source code is available on [GitHub](https://github.com/chrissitxt/chrissi-nightvision) under the Unlicense. If you'd like to get in touch, feel free to join my [Discord server](https://discord.gg/Qdk3TcDv6N).
+**Please note:** This mod is Java Edition only and exclusively hosted on [Modrinth](https://modrinth.com/mod/chrissi-nightvision). The source code is available on [GitHub](https://github.com/chrissitxt/chrissi-nightvision). If you'd like to get in touch, feel free to join my [Discord server](https://discord.gg/Qdk3TcDv6N).
 
 <details>
 
