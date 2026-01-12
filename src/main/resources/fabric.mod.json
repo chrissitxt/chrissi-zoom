@@ -3,7 +3,7 @@
 	"id": "chrissi-zoom",
 	"version": "${version}",
 	"name": "chrissi's Zoom",
-	"description": "A lightweight client-side mod that allows you to toggle zoom with a keybind.",
+	"description": "A lightweight client-side utility mod that allows you to zoom in by holding a keybind.",
 	"authors": [
 		"chrissi"
 	],
@@ -12,7 +12,7 @@
 		"sources": "https://github.com/chrissitxt/chrissi-nightvision",
 		"issues": "https://github.com/chrissitxt/chrissi-nightvision/issues"
 	},
-	"license": "Unlicense",
+	"license": "MIT",
 	"icon": "assets/chrissi-zoom/icon.png",
 	"environment": "client",
 	"entrypoints": {
