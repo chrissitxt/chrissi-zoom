@@ -2,8 +2,6 @@
 
 chrissi's Zoom is a lightweight client-side utility mod that allows you to zoom in by holding a keybind.
 
-Uses Minecraft's built-in spyglass zoom functionality for smooth, vanilla-like zooming; all in a very lightweight way.
-
 ---
 
 **Please note:** This mod is Java Edition only and exclusively hosted on [Modrinth](https://modrinth.com/mod/chrissi-nightvision). The source code is available on [GitHub](https://github.com/chrissitxt/chrissi-nightvision). If you'd like to get in touch, feel free to join my [Discord server](https://discord.gg/Qdk3TcDv6N).
