@@ -14,14 +14,6 @@ Hold **C** (default keybind) to zoom in. While zooming, use your **mouse wheel**
 
 To change the keybind, go to **Options → Controls → Miscellaneous** and look for "Hold Zoom".
 
-You can customize the mod's behavior by editing the config file located at:
-
-```
-config/chrissi-zoom.json
-```
-
-**Note:** You need to restart Minecraft after changing the config file for changes to take effect.
-
 **Mod Menu integration** may be considered for future updates, but for now, manual config editing keeps the mod lightweight and dependency-free.
 
 </details>
