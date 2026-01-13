@@ -6,24 +6,18 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.OptionInstance;
 import org.lwjgl.glfw.GLFW;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class ZoomClient implements ClientModInitializer {
     public static final String MOD_ID = "chrissi-zoom";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-    private static final Minecraft MC = Minecraft.getInstance();
 
     private static final double DEFAULT_ZOOM_LEVEL = 3.0;
     private static final double MIN_ZOOM_LEVEL = 1.0;
     private static final double MAX_ZOOM_LEVEL = 50.0;
     private static final double ZOOM_SCROLL_MULTIPLIER = 1.1;
-    private static final float ZOOM_SMOOTHNESS = 0.15f;
 
     private static ZoomClient instance;
     private KeyMapping zoomKey;
-    private double targetZoomLevel = DEFAULT_ZOOM_LEVEL;
-    private double currentZoomLevel = 1.0;
+    private double currentZoomLevel = DEFAULT_ZOOM_LEVEL;
     private Double savedMouseSensitivity;
 
     @Override
@@ -43,22 +37,15 @@ public class ZoomClient implements ClientModInitializer {
     }
 
     public float modifyFov(float originalFov) {
-        OptionInstance<Double> mouseSensitivity = MC.options.sensitivity();
+        OptionInstance<Double> mouseSensitivity = Minecraft.getInstance().options.sensitivity();
 
         if (!zoomKey.isDown()) {
-            // smoothly zoom out
-            targetZoomLevel = DEFAULT_ZOOM_LEVEL;
-            currentZoomLevel = lerp(currentZoomLevel, targetZoomLevel, ZOOM_SMOOTHNESS);
+            currentZoomLevel = DEFAULT_ZOOM_LEVEL;
 
             // restore original mouse sensitivity
             if (savedMouseSensitivity != null) {
                 mouseSensitivity.set(savedMouseSensitivity);
                 savedMouseSensitivity = null;
-            }
-
-            // snap to 1.0 when close enough
-            if (Math.abs(currentZoomLevel - 1.0) < 0.001) {
-                currentZoomLevel = 1.0;
             }
 
             return originalFov;
@@ -67,14 +54,6 @@ public class ZoomClient implements ClientModInitializer {
         // save original mouse sensitivity on first zoom activation
         if (savedMouseSensitivity == null) {
             savedMouseSensitivity = mouseSensitivity.get();
-        }
-
-        // smooth interpolation towards target zoom level
-        currentZoomLevel = lerp(currentZoomLevel, targetZoomLevel, ZOOM_SMOOTHNESS);
-
-        // snap to target when close enough
-        if (Math.abs(currentZoomLevel - targetZoomLevel) < 0.001) {
-            currentZoomLevel = targetZoomLevel;
         }
 
         // adjust mouse sensitivity proportionally to zoom level
@@ -91,20 +70,16 @@ public class ZoomClient implements ClientModInitializer {
 
         // adjust zoom level by scroll amount
         if (scrollAmount > 0) {
-            targetZoomLevel *= ZOOM_SCROLL_MULTIPLIER;
+            currentZoomLevel *= ZOOM_SCROLL_MULTIPLIER;
         } else if (scrollAmount < 0) {
-            targetZoomLevel /= ZOOM_SCROLL_MULTIPLIER;
+            currentZoomLevel /= ZOOM_SCROLL_MULTIPLIER;
         }
 
         // clamp zoom level to valid range
-        targetZoomLevel = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, targetZoomLevel));
+        currentZoomLevel = Math.max(MIN_ZOOM_LEVEL, Math.min(MAX_ZOOM_LEVEL, currentZoomLevel));
     }
 
     public boolean isZooming() {
         return zoomKey.isDown();
-    }
-
-    private double lerp(double current, double target, float alpha) {
-        return current + (target - current) * alpha;
     }
 }
