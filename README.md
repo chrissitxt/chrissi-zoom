@@ -1,4 +1,4 @@
-![Banner](https://i.imgur.com/yqmk3XP.png)
+![Title](https://cdn.modrinth.com/data/cached_images/a46bc4fb6339d6ee387bec1f8eb32c9f733807a7.png)
 
 chrissi's Zoom is a lightweight client-side utility mod that allows you to zoom in by holding a keybind.
 
