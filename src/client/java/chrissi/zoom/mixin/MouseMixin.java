@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MouseMixin {
 
     // handle scroll wheel while zooming
-    @Inject(method = "onScroll", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "onScroll(JDD)V", at = @At("HEAD"), cancellable = true)
     private void onMouseScroll(long window, double horizontal, double vertical, CallbackInfo ci) {
         if (ZoomClient.getInstance().isZooming() && vertical != 0) {
             ZoomClient.getInstance().onMouseScroll(vertical);
