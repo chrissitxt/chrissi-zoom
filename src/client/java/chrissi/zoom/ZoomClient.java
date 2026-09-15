@@ -5,7 +5,7 @@ import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.OptionInstance;
-import org.lwjgl.glfw.GLFW;
+import com.mojang.blaze3d.platform.InputConstants;
 
 public class ZoomClient implements ClientModInitializer {
     public static final String MOD_ID = "chrissi-zoom";
@@ -27,7 +27,7 @@ public class ZoomClient implements ClientModInitializer {
         // register keybind (default: c key)
         zoomKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                 "key.chrissi-zoom.zoom",
-                GLFW.GLFW_KEY_C,
+                InputConstants.KEY_C,
                 KeyMapping.Category.MISC
         ));
     }
